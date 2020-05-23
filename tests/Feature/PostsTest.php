@@ -4,6 +4,7 @@ namespace Tests\Feature;
 
 use App\User;
 use Canvas\Post;
+use Canvas\Tag;
 use Tests\TestCase;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -61,5 +62,55 @@ class PostsTest extends TestCase
             $response->assertSee($post->title);
             $response->assertSee($post->summary);
         }
+    }
+
+    /** @test */
+    public function it_can_filter_posts_based_on_a_tag()
+    {
+        $laravelTag = factory(Tag::class)->create(
+            [
+                'user_id' => $this->user->id,
+                'slug' => 'laravel',
+                'name' => 'laravel',
+            ]
+        );
+
+        $testingTag = factory(Tag::class)->create(
+            [
+                'user_id' => $this->user->id,
+                'slug' => 'testing',
+                'name' => 'testing',
+            ]
+        );
+
+        $laravelPost = factory(Post::class)->create(
+            [
+                'user_id' => $this->user->id,
+                'title' => 'Laravel Tag Post',
+                'slug' => 'laravel-tag-post',
+            ]
+        );
+
+        $laravelPost->tags()->save($laravelTag);
+
+        $testingPost = factory(Post::class)->create(
+            [
+                'user_id' => $this->user->id,
+                'title' => 'Testing Tag Post',
+                'slug' => 'testing-tag-post'
+            ]
+        );
+
+        $testingPost->tags()->save($testingTag);
+
+        $response = $this->get('/laravel');
+        $response->assertOk();
+        $response->assertSee('Laravel Tag Post');
+        $response->assertDontSee('Testing Tag Post');
+
+        $response = $this->get('/testing');
+        $response->assertOk();
+        $response->assertDontSee('Laravel Tag Post');
+        $response->assertSee('Testing Tag Post');
     }
 }

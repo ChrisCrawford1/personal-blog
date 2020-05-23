@@ -23,8 +23,8 @@
         </nav>
 
         <div class="flex items-center text-lg no-underline text-white pr-6">
-            <a class="pl-6" href="https://www.instagram.com/christopher.crawford_/" title="Redirect to my Instagram Profile">
-                <i class="fab fa-instagram transform duration-300 ease-in-out hover:-translate-y-1"></i>
+            <a class="pl-6" href="https://github.com/ChrisCrawford1" title="Redirect to my GitHub Profile">
+                <i class="fab fa-github transform duration-300 ease-in-out hover:-translate-y-1 hover:text-purple-700"></i>
             </a>
             <a class="pl-6" href="https://twitter.com/ScopherTk" title="Redirect to my Twitter Profile">
                 <i class="fab fa-twitter transform duration-300 ease-in-out hover:-translate-y-1 hover:text-blue-500"></i>
