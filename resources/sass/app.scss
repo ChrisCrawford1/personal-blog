@@ -1,0 +1,72 @@
+/* purgecss start ignore */
+@tailwind  base;
+@tailwind  components;
+/* purgecss end ignore */
+
+@tailwind utilities;
+
+/* purgecss start ignore */
+body > div > main > div > div > p {
+    @apply py-4;
+}
+body > div > main > div > section > article > div > div > h2 {
+    @apply text-3xl;
+    font-family: inherit;
+    color: #C05621;
+}
+
+body > div > main > div > section > article > div > div > h3 {
+    @apply text-2xl;
+    @apply py-3;
+    font-family: inherit;
+    color: #C05621;
+}
+
+body > div > main > div > section > article > div > div > div.ql-embed-content {
+    @apply my-6;
+}
+
+body > div > main > div > section > article > div > div > pre {
+    @apply my-3;
+    @apply overflow-x-auto;
+    @apply p-2;
+    @apply bg-gray-100;
+    @apply rounded-lg;
+    @apply shadow;
+}
+
+body > div > main > div > section > article > div > div > a {
+    @apply underline;
+    color: rgb(3, 102, 214);
+}
+
+body > div > main > div > section > article > div > div > strong {
+    @apply font-medium;
+}
+
+body > div > main > div > section > article > div > div > blockquote {
+    @apply border-l-4;
+    @apply pl-4;
+    @apply py-1;
+    @apply my-3;
+}
+
+body > div > main > div > section > article > div > div > div.embedded_image > img {
+    @apply py-6;
+}
+
+body > div > main > div > section > article > div > div > ul {
+    @apply py-4;
+    @apply pl-5;
+    @apply list-disc;
+}
+
+body > div > main > div > section > article > div > div > blockquote > a {
+    @apply underline;
+}
+
+.tech-icon {
+    @apply text-4xl;
+    @apply mr-3;
+}
+/* purgecss end ignore */
