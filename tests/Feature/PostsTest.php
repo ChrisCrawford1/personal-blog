@@ -5,7 +5,10 @@ namespace Tests\Feature;
 use App\User;
 use Canvas\Post;
 use Canvas\Tag;
+use Canvas\Topic;
 use Tests\TestCase;
+use Canvas\Events\PostViewed;
+use Illuminate\Support\Facades\Event;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
@@ -112,5 +115,56 @@ class PostsTest extends TestCase
         $response->assertOk();
         $response->assertDontSee('Laravel Tag Post');
         $response->assertSee('Testing Tag Post');
+    }
+
+    /** @test */
+    public function it_can_view_a_post_and_record_a_visit_and_view()
+    {
+        Event::fake([PostViewed::class]);
+
+        $topic = factory(Topic::class)->create(
+            [
+                'user_id' => $this->user->id
+            ]
+        );
+        $post = factory(Post::class)->create(
+            [
+                'user_id' => $this->user->id
+            ]
+        );
+
+        $post->topic()->save($topic);
+
+        $response = $this->get('/posts/' . $post->slug);
+        $response->assertOk();
+        $response->assertSee($post->title);
+
+        Event::assertDispatched(PostViewed::class);
+    }
+
+    /** @test */
+    public function it_wont_record_a_view_or_visit_for_the_logged_in_user()
+    {
+        $this->actingAs($this->user);
+        Event::fake([PostViewed::class]);
+
+        $topic = factory(Topic::class)->create(
+            [
+                'user_id' => $this->user->id
+            ]
+        );
+        $post = factory(Post::class)->create(
+            [
+                'user_id' => $this->user->id
+            ]
+        );
+
+        $post->topic()->save($topic);
+
+        $response = $this->get('/posts/' . $post->slug);
+        $response->assertOk();
+        $response->assertSee($post->title);
+
+        Event::assertNotDispatched(PostViewed::class);
     }
 }
