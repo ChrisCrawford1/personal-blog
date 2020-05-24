@@ -2,5 +2,5 @@ codecov:
   require_ci_to_pass: yes
 
 ignore:
-  - "Http/Controllers/Auth"
-  - "Http/Middleware"
+  - "app/Http/Controllers/Auth"
+  - "app/Http/Middleware"
