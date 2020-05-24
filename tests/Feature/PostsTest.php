@@ -3,8 +3,9 @@
 namespace Tests\Feature;
 
 use App\User;
-use Canvas\Post;
 use Canvas\Tag;
+use Canvas\Post;
+use App\Settings;
 use Canvas\Topic;
 use Tests\TestCase;
 use Canvas\Events\PostViewed;
@@ -25,6 +26,7 @@ class PostsTest extends TestCase
     {
         parent::setUp();
         $this->user = factory(User::class)->create();
+        Settings::create(['projects_enabled' => 1]);
     }
 
     /** @test */
