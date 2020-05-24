@@ -12,13 +12,13 @@
                         About
                     </a>
                 </li>
-                @if(Auth::check())
+                @projectsEnabled()
                 <li>
                     <a class="hover:text-gray-200 hover:underline px-4 {{ url()->current() === route('pages.projects') ? 'underline' : '' }}" href="{{ route('pages.projects') }}" title="Go to the projects page">
                         Projects
                     </a>
                 </li>
-                @endif
+                @endprojectsEnabled()
             </ul>
         </nav>
 
