@@ -9,24 +9,24 @@
 body > div > main > div > div > p {
     @apply py-4;
 }
-body > div > main > div > section > article > div > div > h2 {
+body > div > main > div > article > div > div > h2 {
     @apply text-3xl;
     font-family: inherit;
     color: #C05621;
 }
 
-body > div > main > div > section > article > div > div > h3 {
+body > div > main > div > article > div > div > h3 {
     @apply text-2xl;
     @apply py-3;
     font-family: inherit;
     color: #C05621;
 }
 
-body > div > main > div > section > article > div > div > div.ql-embed-content {
+body > div > main > div > article > div > div > div.ql-embed-content {
     @apply my-6;
 }
 
-body > div > main > div > section > article > div > div > pre {
+body > div > main > div > article > div > div > pre {
     @apply my-3;
     @apply overflow-x-auto;
     @apply p-2;
@@ -35,34 +35,54 @@ body > div > main > div > section > article > div > div > pre {
     @apply shadow;
 }
 
-body > div > main > div > section > article > div > div > a {
+body > div > main > div > article > div > div > a {
     @apply underline;
     color: rgb(3, 102, 214);
 }
 
-body > div > main > div > section > article > div > div > strong {
+body > div > main > div > article > div > div > strong {
     @apply font-medium;
 }
 
-body > div > main > div > section > article > div > div > blockquote {
+body > div > main > div > article > div > div > blockquote {
     @apply border-l-4;
     @apply pl-4;
     @apply py-1;
     @apply my-3;
 }
 
-body > div > main > div > section > article > div > div > div.embedded_image > img {
+body > div > main > div > article > div > div > div.embedded_image > img {
     @apply py-6;
 }
 
-body > div > main > div > section > article > div > div > ul {
+body > div > main > div > article > div > div > ul {
     @apply py-4;
     @apply pl-5;
     @apply list-disc;
 }
 
-body > div > main > div > section > article > div > div > blockquote > a {
+body > div > main > div > article > div > a {
+    color: #C05621;
+}
+
+body > div > main > div > article > div > div > p > a {
     @apply underline;
+}
+
+body > div > main > div > article > div > div > blockquote > a {
+    @apply underline;
+}
+
+code {
+    @apply bg-gray-300;
+    @apply rounded;
+    @apply px-2;
+    //@apply py-1;
+    @apply text-orange-700;
+}
+
+.ql-syntax {
+    @apply bg-gray-300;
 }
 
 .tech-icon {
