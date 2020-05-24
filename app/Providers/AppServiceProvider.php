@@ -3,7 +3,9 @@
 namespace App\Providers;
 
 use App\Settings;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -27,6 +29,10 @@ class AppServiceProvider extends ServiceProvider
     {
         Blade::if('projectsEnabled', function () {
             return Settings::all()->first()->projects_enabled;
+        });
+
+        Blade::if('consentCookieFound', function () {
+            return Cookie::get('laravel_cookie_consent') && !Auth::check();
         });
     }
 }

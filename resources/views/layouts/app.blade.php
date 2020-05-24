@@ -25,11 +25,17 @@
             font-family: karla;
         }
     </style>
+
+    <!-- Check if the visitor has consented to cookies before using GA -->
+    @consentCookieFound()
+
+    @endconsentCookieFound()
 </head>
 <body class="bg-white h-screen antialiased leading-none font-family-karla">
     <div id="app">
         @include('_partials.navbar')
         @yield('content')
+        @include('cookieConsent::index')
         @include('_partials.footer')
     </div>
 </body>
