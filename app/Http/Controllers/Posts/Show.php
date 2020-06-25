@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers\Posts;
 
-use Canvas\Post;
-use Illuminate\View\View;
-use Illuminate\Http\Request;
-use Canvas\Events\PostViewed;
-use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
+use Canvas\Events\PostViewed;
+use Canvas\Post;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\View\View;
 
 class Show extends Controller
 {
     /**
      * @param Request $request
-     * @param Post $post
+     * @param Post    $post
      *
      * @return View
      */

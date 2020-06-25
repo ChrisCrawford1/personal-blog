@@ -3,9 +3,7 @@
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
 use Canvas\Post;
-use Carbon\Carbon;
 use Faker\Generator as Faker;
-use Illuminate\Support\Str;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,12 +18,12 @@ use Illuminate\Support\Str;
 
 $factory->define(Post::class, function (Faker $faker) {
     return [
-        'id' => $faker->uuid,
-        'slug' => $faker->slug,
-        'title' => $faker->word,
+        'id'      => $faker->uuid,
+        'slug'    => $faker->slug,
+        'title'   => $faker->word,
         'summary' => $faker->word,
-        'body' => $faker->word,
-        'meta' => json_encode([]),
+        'body'    => $faker->word,
+        'meta'    => json_encode([]),
         'user_id' => null,
     ];
 });

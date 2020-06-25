@@ -2,16 +2,16 @@
 
 namespace Tests\Feature;
 
-use App\User;
-use Canvas\Tag;
-use Canvas\Post;
 use App\Settings;
-use Canvas\Topic;
-use Tests\TestCase;
+use App\User;
 use Canvas\Events\PostViewed;
-use Illuminate\Support\Facades\Event;
+use Canvas\Post;
+use Canvas\Tag;
+use Canvas\Topic;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\Event;
+use Tests\TestCase;
 
 class PostsTest extends TestCase
 {
@@ -42,7 +42,7 @@ class PostsTest extends TestCase
     {
         $post = factory(Post::class, 1)->create(
             [
-                'user_id' => $this->user->id
+                'user_id' => $this->user->id,
             ]
         );
 
@@ -55,9 +55,9 @@ class PostsTest extends TestCase
     /** @test */
     public function it_can_see_multiple_posts()
     {
-        $posts = factory(Post::class,5)->create(
+        $posts = factory(Post::class, 5)->create(
             [
-                'user_id' => $this->user->id
+                'user_id' => $this->user->id,
             ]
         );
 
@@ -75,24 +75,24 @@ class PostsTest extends TestCase
         $laravelTag = factory(Tag::class)->create(
             [
                 'user_id' => $this->user->id,
-                'slug' => 'laravel',
-                'name' => 'laravel',
+                'slug'    => 'laravel',
+                'name'    => 'laravel',
             ]
         );
 
         $testingTag = factory(Tag::class)->create(
             [
                 'user_id' => $this->user->id,
-                'slug' => 'testing',
-                'name' => 'testing',
+                'slug'    => 'testing',
+                'name'    => 'testing',
             ]
         );
 
         $laravelPost = factory(Post::class)->create(
             [
                 'user_id' => $this->user->id,
-                'title' => 'Laravel Tag Post',
-                'slug' => 'laravel-tag-post',
+                'title'   => 'Laravel Tag Post',
+                'slug'    => 'laravel-tag-post',
             ]
         );
 
@@ -101,8 +101,8 @@ class PostsTest extends TestCase
         $testingPost = factory(Post::class)->create(
             [
                 'user_id' => $this->user->id,
-                'title' => 'Testing Tag Post',
-                'slug' => 'testing-tag-post'
+                'title'   => 'Testing Tag Post',
+                'slug'    => 'testing-tag-post',
             ]
         );
 
@@ -126,18 +126,18 @@ class PostsTest extends TestCase
 
         $topic = factory(Topic::class)->create(
             [
-                'user_id' => $this->user->id
+                'user_id' => $this->user->id,
             ]
         );
         $post = factory(Post::class)->create(
             [
-                'user_id' => $this->user->id
+                'user_id' => $this->user->id,
             ]
         );
 
         $post->topic()->save($topic);
 
-        $response = $this->get('/posts/' . $post->slug);
+        $response = $this->get('/posts/'.$post->slug);
         $response->assertOk();
         $response->assertSee($post->title);
 
@@ -152,18 +152,18 @@ class PostsTest extends TestCase
 
         $topic = factory(Topic::class)->create(
             [
-                'user_id' => $this->user->id
+                'user_id' => $this->user->id,
             ]
         );
         $post = factory(Post::class)->create(
             [
-                'user_id' => $this->user->id
+                'user_id' => $this->user->id,
             ]
         );
 
         $post->topic()->save($topic);
 
-        $response = $this->get('/posts/' . $post->slug);
+        $response = $this->get('/posts/'.$post->slug);
         $response->assertOk();
         $response->assertSee($post->title);
 
