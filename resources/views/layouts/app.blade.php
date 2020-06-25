@@ -29,7 +29,7 @@
 
     <!-- Check if the visitor has consented to cookies before using GA -->
     @consentCookieFound()
-
+        <!-- Add GA Tag at later date -->
     @endconsentCookieFound()
 </head>
 <body class="bg-white h-screen antialiased leading-none font-family-karla">
