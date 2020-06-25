@@ -1,6 +1,7 @@
 # Personal Blog
 [![Build Status](https://travis-ci.com/ChrisCrawford1/personal-blog.svg?branch=master)](https://travis-ci.com/ChrisCrawford1/personal-blog)
 [![codecov](https://codecov.io/gh/ChrisCrawford1/personal-blog/branch/master/graph/badge.svg)](https://codecov.io/gh/ChrisCrawford1/personal-blog)
+[![StyleCI](https://github.styleci.io/repos/266366085/shield?branch=develop)](https://github.styleci.io/repos/266366085)
 
 Just a simple personal blog / website powered by Laravel utilising a few technologies to make things
 a little easier along the way.

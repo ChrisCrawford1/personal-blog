@@ -31,7 +31,7 @@ class Index extends Controller
         return view('blog.index')->with(
             [
                 'posts' => $posts,
-                'tags' => Tag::all()
+                'tags'  => Tag::all(),
             ]
         );
     }

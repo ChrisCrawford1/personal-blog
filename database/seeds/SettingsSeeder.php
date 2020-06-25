@@ -14,7 +14,7 @@ class SettingsSeeder extends Seeder
     {
         Settings::create(
             [
-                'projects_enabled' => false
+                'projects_enabled' => false,
             ]
         );
     }
