@@ -89,4 +89,29 @@ code {
     @apply text-4xl;
     @apply mr-3;
 }
+// Styles for Spaties cookie consent package
+.js-cookie-consent {
+    @apply bg-gray-700;
+    @apply px-24;
+    @apply py-8;
+    @apply mb-12;
+    @apply bottom-0;
+    @apply fixed;
+    @apply rounded;
+    @apply text-white;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.js-cookie-consent-agree {
+    @apply bg-orange-500;
+    @apply text-white;
+    @apply font-bold;
+    @apply rounded;
+    @apply py-3;
+    @apply px-4;
+}
+.js-cookie-consent-agree:hover {
+    @apply bg-orange-700;
+}
 /* purgecss end ignore */

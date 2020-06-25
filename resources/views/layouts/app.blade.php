@@ -6,6 +6,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="{{ url('/images/apple-touch-icon.png') }}">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ url('/images/favicon-32x32.png') }}">
     <link rel="icon" type="image/png" sizes="16x16" href="{{ url('/images/favicon-16x16.png') }}">
+    @yield('meta')
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -25,11 +26,17 @@
             font-family: karla;
         }
     </style>
+
+    <!-- Check if the visitor has consented to cookies before using GA -->
+    @consentCookieFound()
+        <!-- Add GA Tag at later date -->
+    @endconsentCookieFound()
 </head>
 <body class="bg-white h-screen antialiased leading-none font-family-karla">
     <div id="app">
         @include('_partials.navbar')
         @yield('content')
+        @include('cookieConsent::index')
         @include('_partials.footer')
     </div>
 </body>
