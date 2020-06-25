@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('meta')
+    <meta name="description" content="{{ $post->meta['description'] ?? '' }}">
+@endsection
+
 @section('title')
     {{ $post->title }}
 @endsection

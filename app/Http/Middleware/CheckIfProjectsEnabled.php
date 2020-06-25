@@ -2,8 +2,8 @@
 
 namespace App\Http\Middleware;
 
-use Closure;
 use App\Settings;
+use Closure;
 use Illuminate\Http\Request;
 
 class CheckIfProjectsEnabled
@@ -11,14 +11,14 @@ class CheckIfProjectsEnabled
     /**
      * Prevent access to projects page if its disabled.
      *
-     * @param  Request  $request
-     * @param  \Closure  $next
+     * @param Request  $request
+     * @param \Closure $next
+     *
      * @return mixed
      */
     public function handle($request, Closure $next)
     {
-        if (Settings::all()->first()->projects_enabled)
-        {
+        if (Settings::all()->first()->projects_enabled) {
             return $next($request);
         }
 
