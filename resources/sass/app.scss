@@ -27,12 +27,7 @@ body > div > main > div > article > div > div > div.ql-embed-content {
 }
 
 body > div > main > div > article > div > div > pre {
-    @apply my-3;
-    @apply overflow-x-auto;
-    @apply p-2;
-    @apply bg-gray-100;
-    @apply rounded-lg;
-    @apply shadow;
+    @apply my-3 overflow-x-auto p-2 bg-gray-100 rounded-lg shadow;
 }
 
 body > div > main > div > article > div > div > a {
@@ -45,10 +40,7 @@ body > div > main > div > article > div > div > strong {
 }
 
 body > div > main > div > article > div > div > blockquote {
-    @apply border-l-4;
-    @apply pl-4;
-    @apply py-1;
-    @apply my-3;
+    @apply border-l-4 pl-4 py-1 my-3;
 }
 
 body > div > main > div > article > div > div > div.embedded_image > img {
@@ -56,9 +48,7 @@ body > div > main > div > article > div > div > div.embedded_image > img {
 }
 
 body > div > main > div > article > div > div > ul {
-    @apply py-4;
-    @apply pl-5;
-    @apply list-disc;
+    @apply py-4 pl-5 list-disc;
 }
 
 body > div > main > div > article > div > a {
@@ -74,11 +64,7 @@ body > div > main > div > article > div > div > blockquote > a {
 }
 
 code {
-    @apply bg-gray-300;
-    @apply rounded;
-    @apply px-2;
-    //@apply py-1;
-    @apply text-orange-700;
+    @apply bg-gray-300 rounded px-2 text-orange-700;
 }
 
 .ql-syntax {
@@ -86,30 +72,17 @@ code {
 }
 
 .tech-icon {
-    @apply text-4xl;
-    @apply mr-3;
+    @apply text-4xl mr-3;
 }
 // Styles for Spaties cookie consent package
 .js-cookie-consent {
-    @apply bg-gray-700;
-    @apply px-24;
-    @apply py-8;
-    @apply mb-12;
-    @apply bottom-0;
-    @apply fixed;
-    @apply rounded;
-    @apply text-white;
+    @apply bg-gray-700 px-24 py-8 mb-12 bottom-0 fixed rounded text-white;
     left: 50%;
     transform: translateX(-50%);
 }
 
 .js-cookie-consent-agree {
-    @apply bg-orange-500;
-    @apply text-white;
-    @apply font-bold;
-    @apply rounded;
-    @apply py-3;
-    @apply px-4;
+    @apply bg-orange-500 text-white font-bold rounded py-3 px-4;
 }
 .js-cookie-consent-agree:hover {
     @apply bg-orange-700;
