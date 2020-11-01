@@ -5,9 +5,9 @@ namespace App\Http\Controllers\Posts;
 use App\Http\Controllers\Controller;
 use Canvas\Events\PostViewed;
 use Canvas\Post;
-use Illuminate\Support\Facades\Cookie;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cookie;
 use Illuminate\View\View;
 
 class Show extends Controller
