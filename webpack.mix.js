@@ -25,6 +25,7 @@ if (mix.inProduction()) {
 
 mix.js('resources/js/app.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css')
+    .copyDirectory('resources/images', 'public/images')
     .options({
         processCssUrls: false,
         postCss: [
@@ -34,7 +35,21 @@ mix.js('resources/js/app.js', 'public/js')
     .purgeCss({
         enabled: mix.inProduction(),
         extensions: ['html', 'js', 'php', 'vue', 'scss'],
-        whitelist: ['flex', 'flex-col', 'md:flex-row', 'items-center', 'justify-center'],
+        whitelist: [
+            'flex',
+            'flex-col',
+            'md:flex-row',
+            'items-center',
+            'justify-center',
+            'js-cookie-consent-agree',
+            'js-cookie-consent',
+            'code',
+            'ql-syntax',
+            'tech-icon',
+            'main',
+            'div',
+            'article',
+            'pre'
+        ],
     });
 
-mix.copyDirectory('resources/images', 'public/images');
