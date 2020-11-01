@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\Posts;
 
-use App\Http\Controllers\Controller;
-use Canvas\Events\PostViewed;
 use Canvas\Post;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
+use Illuminate\Http\Request;
+use Canvas\Events\PostViewed;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Cookie;
 
 class Show extends Controller
 {
@@ -19,7 +20,7 @@ class Show extends Controller
      */
     public function __invoke(Request $request, Post $post): View
     {
-        if (!Auth::check()) {
+        if (!Auth::check() && Cookie::get('laravel_cookie_consent')) {
             event(new PostViewed($post));
         }
 
