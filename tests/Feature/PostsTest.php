@@ -43,7 +43,7 @@ class PostsTest extends TestCase
     {
         $post = factory(Post::class, 1)->create(
             [
-                'user_id' => $this->user->id,
+                'user_id'      => $this->user->id,
                 'published_at' => Carbon::now()->subDay()
             ]
         );
@@ -59,7 +59,7 @@ class PostsTest extends TestCase
     {
         $posts = factory(Post::class, 5)->create(
             [
-                'user_id' => $this->user->id,
+                'user_id'      => $this->user->id,
                 'published_at' => Carbon::now()->subDay()
             ]
         );
@@ -93,9 +93,9 @@ class PostsTest extends TestCase
 
         $laravelPost = factory(Post::class)->create(
             [
-                'user_id' => $this->user->id,
-                'title'   => 'Laravel Tag Post',
-                'slug'    => 'laravel-tag-post',
+                'user_id'      => $this->user->id,
+                'title'        => 'Laravel Tag Post',
+                'slug'         => 'laravel-tag-post',
                 'published_at' => Carbon::now()->subDay()
             ]
         );
@@ -104,9 +104,9 @@ class PostsTest extends TestCase
 
         $testingPost = factory(Post::class)->create(
             [
-                'user_id' => $this->user->id,
-                'title'   => 'Testing Tag Post',
-                'slug'    => 'testing-tag-post',
+                'user_id'      => $this->user->id,
+                'title'        => 'Testing Tag Post',
+                'slug'         => 'testing-tag-post',
                 'published_at' => Carbon::now()->subDay()
             ]
         );
@@ -188,9 +188,9 @@ class PostsTest extends TestCase
 
         $publishedPost = factory(Post::class)->create(
             [
-                'user_id' => $this->user->id,
-                'title'   => 'Laravel Tag Post',
-                'slug'    => 'laravel-tag-post',
+                'user_id'      => $this->user->id,
+                'title'        => 'Laravel Tag Post',
+                'slug'         => 'laravel-tag-post',
                 'published_at' => Carbon::now()->subDay()
             ]
         );
