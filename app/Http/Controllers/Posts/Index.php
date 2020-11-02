@@ -21,11 +21,11 @@ class Index extends Controller
         $posts = null;
 
         if ($filterTag) {
-            $posts = $filterTag->posts()->orderBy('created_at', 'desc')->paginate(5);
+            $posts = $filterTag->posts()->published()->orderBy('created_at', 'desc')->paginate(5);
         }
 
         if (!$filterTag) {
-            $posts = Post::orderBy('created_at', 'desc')->paginate(5);
+            $posts = Post::orderBy('created_at', 'desc')->published()->paginate(5);
         }
 
         return view('blog.index')->with(
