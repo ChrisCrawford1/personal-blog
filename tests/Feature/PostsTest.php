@@ -8,6 +8,7 @@ use Canvas\Events\PostViewed;
 use Canvas\Post;
 use Canvas\Tag;
 use Canvas\Topic;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Event;
@@ -43,6 +44,7 @@ class PostsTest extends TestCase
         $post = factory(Post::class, 1)->create(
             [
                 'user_id' => $this->user->id,
+                'published_at' => Carbon::now()->subDay()
             ]
         );
 
@@ -58,6 +60,7 @@ class PostsTest extends TestCase
         $posts = factory(Post::class, 5)->create(
             [
                 'user_id' => $this->user->id,
+                'published_at' => Carbon::now()->subDay()
             ]
         );
 
@@ -93,6 +96,7 @@ class PostsTest extends TestCase
                 'user_id' => $this->user->id,
                 'title'   => 'Laravel Tag Post',
                 'slug'    => 'laravel-tag-post',
+                'published_at' => Carbon::now()->subDay()
             ]
         );
 
@@ -103,6 +107,7 @@ class PostsTest extends TestCase
                 'user_id' => $this->user->id,
                 'title'   => 'Testing Tag Post',
                 'slug'    => 'testing-tag-post',
+                'published_at' => Carbon::now()->subDay()
             ]
         );
 
@@ -168,5 +173,43 @@ class PostsTest extends TestCase
         $response->assertSee($post->title);
 
         Event::assertNotDispatched(PostViewed::class);
+    }
+
+    /** @test */
+    public function it_will_not_posts_that_are_still_drafts()
+    {
+        $laravelTag = factory(Tag::class)->create(
+            [
+                'user_id' => $this->user->id,
+                'slug'    => 'laravel',
+                'name'    => 'laravel',
+            ]
+        );
+
+        $publishedPost = factory(Post::class)->create(
+            [
+                'user_id' => $this->user->id,
+                'title'   => 'Laravel Tag Post',
+                'slug'    => 'laravel-tag-post',
+                'published_at' => Carbon::now()->subDay()
+            ]
+        );
+
+        $publishedPost->tags()->save($laravelTag);
+
+        $unpublishedPost = factory(Post::class)->create(
+            [
+                'user_id' => $this->user->id,
+                'title'   => 'Testing Tag Post',
+                'slug'    => 'testing-tag-post',
+            ]
+        );
+
+        $unpublishedPost->tags()->save($laravelTag);
+
+        $response = $this->get('/');
+        $response->assertOk();
+        $response->assertSee($publishedPost->title);
+        $response->assertDontSee($unpublishedPost->title);
     }
 }
