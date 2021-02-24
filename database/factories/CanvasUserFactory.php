@@ -2,7 +2,6 @@
 
 /** @var Factory $factory */
 
-use Canvas\Models\Post;
 use Canvas\Models\User;
 use Faker\Generator as Faker;
 use Illuminate\Database\Eloquent\Factory;
@@ -20,11 +19,11 @@ use Illuminate\Database\Eloquent\Factory;
 
 $factory->define(User::class, function (Faker $faker) {
     return [
-        'id'      => $faker->uuid,
-        'name'    => $faker->name,
-        'email'   => $faker->email,
-        'username' => $faker->userName,
-        'password'    => $faker->word,
-        'role' => 3,
+        'id'        => $faker->uuid,
+        'name'      => $faker->name,
+        'email'     => $faker->email,
+        'username'  => $faker->userName,
+        'password'  => $faker->word,
+        'role'      => 3,
     ];
 });
