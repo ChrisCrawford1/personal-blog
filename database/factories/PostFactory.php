@@ -1,9 +1,11 @@
 <?php
 
-/** @var \Illuminate\Database\Eloquent\Factory $factory */
+/** @var Factory $factory */
 
-use Canvas\Post;
+use Canvas\Models\Post;
+use Canvas\Models\User;
 use Faker\Generator as Faker;
+use Illuminate\Database\Eloquent\Factory;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +26,6 @@ $factory->define(Post::class, function (Faker $faker) {
         'summary' => $faker->word,
         'body'    => $faker->word,
         'meta'    => json_encode([]),
-        'user_id' => null,
+        'user_id' => factory(User::class)->create()->id,
     ];
 });
