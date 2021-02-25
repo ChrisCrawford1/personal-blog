@@ -2,7 +2,7 @@
 
 namespace App\Providers;
 
-use Canvas\Tag;
+use Canvas\Models\Tag;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Route;
 

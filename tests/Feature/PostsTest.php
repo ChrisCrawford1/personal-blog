@@ -3,11 +3,11 @@
 namespace Tests\Feature;
 
 use App\Settings;
-use App\User;
 use Canvas\Events\PostViewed;
-use Canvas\Post;
-use Canvas\Tag;
-use Canvas\Topic;
+use Canvas\Models\Post;
+use Canvas\Models\Tag;
+use Canvas\Models\Topic;
+use Canvas\Models\User;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Testing\RefreshDatabase;
