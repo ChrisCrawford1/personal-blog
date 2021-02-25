@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Posts;
 
 use App\Http\Controllers\Controller;
-use Canvas\Post;
-use Canvas\Tag;
+use Canvas\Models\Post;
+use Canvas\Models\Tag;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
-use Illuminate\View\View;
 
 class Index extends Controller
 {
